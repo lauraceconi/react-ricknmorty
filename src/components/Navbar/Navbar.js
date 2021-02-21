@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -6,24 +7,24 @@ import {
   Button,
   Container
 } from '@material-ui/core';
-import { NavbarLink } from './styles';
+import './Navbar.scss';
 
 export default function Navbar() {
   return (
     <AppBar position="static" style={{ marginBottom: '40px' }}>
       <Container>
-        <Toolbar style={{ paddingLeft: 0, paddingRight: 0 }}>
-          <NavbarLink to="/" style={{ flex: 1 }}>
+        <Toolbar>
+          <Link to="/" className="navbar-link title">
             <Typography variant="h6">
               Rick and Morty's DB
             </Typography>
-          </NavbarLink>
-          <NavbarLink to="/characters">
+          </Link>
+          <Link to="/characters" className="navbar-link">
             <Button color="inherit">Characters</Button>
-          </NavbarLink>
-          <NavbarLink to="/worlds">
+          </Link>
+          <Link to="/worlds" className="navbar-link">
             <Button color="inherit">Worlds</Button>
-          </NavbarLink>
+          </Link>
         </Toolbar>
       </Container>
     </AppBar>
