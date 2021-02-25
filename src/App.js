@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
-  Grid,
   createMuiTheme,
   ThemeProvider,
 } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
 import Context from './Context';
-import { HomeCard } from './components/HomeCard';
+import { Home } from './components/Home';
 import { Navbar } from './components/Navbar';
 import { Characters } from './components/Characters';
 
@@ -39,15 +38,7 @@ function App() {
               <Worlds />
             </Route> */}
             <Route path="/">
-              <Grid container spacing={6} justify="center">
-                {state.pages.map(page => (
-                  <Grid item xs={12} sm={5} key={page.url}>
-                    <HomeCard imagePath={page.imagePath} buttonLink={page.url}>
-                      {page.text}
-                    </HomeCard>
-                  </Grid>
-                ))}
-              </Grid>
+              <Home />
             </Route>
           </Switch>
         </Router>

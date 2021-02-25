@@ -1,3 +1,2 @@
-import Characters from './Characters';
+export { default as Characters } from './Characters';
 
-export { Characters }

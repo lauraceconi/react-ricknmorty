@@ -9,7 +9,7 @@ import {
   Button
 } from '@material-ui/core';
 
-export default function HomeCard({ imagePath, buttonLink, children }) {
+export default function ImageCard({ imagePath, buttonLink, children }) {
   return (
     <Card>
         <CardMedia image={imagePath} style={{height: 0, paddingTop: '43%'}} />
