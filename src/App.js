@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
-  Container,
   Grid,
   createMuiTheme,
-  ThemeProvider
+  ThemeProvider,
 } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
+import Context from './Context';
 import { HomeCard } from './components/HomeCard';
 import { Navbar } from './components/Navbar';
 import { Characters } from './components/Characters';
@@ -23,35 +23,36 @@ const theme = createMuiTheme({
 });
 
 function App() {
+
+  const state = useContext(Context);
+
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Navbar />
-          <Switch>
-            <Route path="/characters">
-              <Characters />
+    <Context.Provider value={state}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Navbar />
+            <Switch>
+              <Route path="/characters">
+                <Characters />
+              </Route>
+            {/* <Route path="/worlds">
+              <Worlds />
+            </Route> */}
+            <Route path="/">
+              <Grid container spacing={6} justify="center">
+                {state.pages.map(page => (
+                  <Grid item xs={12} sm={5} key={page.url}>
+                    <HomeCard imagePath={page.imagePath} buttonLink={page.url}>
+                      {page.text}
+                    </HomeCard>
+                  </Grid>
+                ))}
+              </Grid>
             </Route>
-          {/* <Route path="/worlds">
-            <Worlds />
-          </Route> */}
-          <Route path="/">
-            <Grid container spacing={3} justify="center">
-              <Grid item xs={5}>
-                <HomeCard imagePath="/images/characters.jpg" buttonLink="characters">
-                  There are so many crazy characters right? Let's take a close looj to all of them!
-                </HomeCard>
-              </Grid>
-              <Grid item xs={5}>
-                <HomeCard imagePath="/images/worlds.jpg" buttonLink="worlds">
-                  You can't remenber which was the name of world Rick and Morty visited in that episode?
-                  Come here and find out!
-                </HomeCard>
-              </Grid>
-            </Grid>
-          </Route>
-        </Switch>
-      </Router>
-    </ThemeProvider>
+          </Switch>
+        </Router>
+      </ThemeProvider>
+    </Context.Provider>
   )
 }
 

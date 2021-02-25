@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Context from '../../Context';
 import {
   AppBar,
   Toolbar,
@@ -10,6 +11,8 @@ import {
 import './Navbar.scss';
 
 export default function Navbar() {
+  const { pages } = useContext(Context);
+
   return (
     <AppBar position="static" style={{ marginBottom: '40px' }}>
       <Container>
@@ -19,12 +22,11 @@ export default function Navbar() {
               Rick and Morty's DB
             </Typography>
           </Link>
-          <Link to="/characters" className="navbar-link">
-            <Button color="inherit">Characters</Button>
-          </Link>
-          <Link to="/worlds" className="navbar-link">
-            <Button color="inherit">Worlds</Button>
-          </Link>
+          {pages.map(page => (
+            <Link to={`/${page.url}`} className="navbar-link" key={page.url}>
+              <Button color="inherit">{page.name}</Button>
+            </Link>
+          ))}
         </Toolbar>
       </Container>
     </AppBar>
