@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <AppBar position="static" style={{ marginBottom: '40px' }}>
       <Container>
-        <Toolbar>
+        <Toolbar disableGutters={true}>
           <Link to="/" className="navbar-link title">
             <Typography variant="h6">
               Rick and Morty's DB

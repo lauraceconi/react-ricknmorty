@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Typography,
-  Container,
   Grid,
   Card,
   CardContent,
@@ -9,16 +8,14 @@ import {
 
 export default function Characters() {
   return (
-    <Container>
-      <Grid xs={6}>
-        <Card>
-          <CardContent>
-          <Typography color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-    </Container>
+    <Grid item xs={5}>
+      <Card>
+        <CardContent>
+        <Typography color="textSecondary" gutterBottom>
+        Word of the Day
+      </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
   )
 }

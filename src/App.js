@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
   createMuiTheme,
   ThemeProvider,
+  Grid
 } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
 import Context from './Context';
@@ -30,6 +31,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <Navbar />
+          <Grid container className="grid">
             <Switch>
               <Route path="/characters">
                 <Characters />
@@ -41,6 +43,7 @@ function App() {
               <Home />
             </Route>
           </Switch>
+        </Grid>
         </Router>
       </ThemeProvider>
     </Context.Provider>
