@@ -12,12 +12,12 @@ import {
 export default function ImageCard({ imagePath, buttonLink, children }) {
   return (
     <Card>
-        <CardMedia image={imagePath} style={{height: 0, paddingTop: '43%'}} />
-        <CardContent>
-          <Typography color="textSecondary" gutterBottom>
-            {children}
-          </Typography>
-        </CardContent>
+      <CardMedia image={imagePath} style={{height: 0, paddingTop: '43%'}} />
+      <CardContent>
+        <Typography color="textSecondary" gutterBottom>
+          {children}
+        </Typography>
+      </CardContent>
       <CardActions>
         <Button component={Link} to={buttonLink} size="small" color="primary">
           Take me there!

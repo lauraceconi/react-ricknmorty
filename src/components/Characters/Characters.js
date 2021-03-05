@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-  Typography,
   Grid,
-  Card,
-  CardContent,
 } from '@material-ui/core';
+import * as SERVICE from '../../services/charactersService';
 
 export default function Characters() {
+  const [characters, setCharacters] = useState([]);
+
+  useEffect(() => {
+    SERVICE.GET_CHARACTERS
+      .then(response => {
+        setCharacters(response.data.results);
+    })
+    return () => {
+      setCharacters([]);
+    }
+  }, [])
+
   return (
     <Grid item xs={5}>
-      <Card>
-        <CardContent>
-        <Typography color="textSecondary" gutterBottom>
-        Word of the Day
-      </Typography>
-        </CardContent>
-      </Card>
+      {characters.map(character => (
+        <span>{character.name}</span>
+      ))}
     </Grid>
   )
 }
