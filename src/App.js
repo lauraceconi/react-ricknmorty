@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import {
   createMuiTheme,
   ThemeProvider,
   Grid
 } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
+import Routes from './Routes';
 import Context from './core/context';
-import { Home } from './components/Home';
 import { Navbar } from './components/Navbar';
-import { Characters } from './components/Characters';
 
 const theme = createMuiTheme({
   palette: {
@@ -32,18 +31,8 @@ function App() {
         <Router>
           <Navbar />
           <Grid container className="grid">
-            <Switch>
-              <Route path="/characters">
-                <Characters />
-              </Route>
-            {/* <Route path="/worlds">
-              <Worlds />
-            </Route> */}
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </Grid>
+            <Routes />
+          </Grid>
         </Router>
       </ThemeProvider>
     </Context.Provider>
