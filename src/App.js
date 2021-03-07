@@ -6,7 +6,7 @@ import {
   Grid
 } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
-import Context from './Context';
+import Context from './core/context';
 import { Home } from './components/Home';
 import { Navbar } from './components/Navbar';
 import { Characters } from './components/Characters';
@@ -17,7 +17,7 @@ const theme = createMuiTheme({
       main: green[400],
     },
     secondary: {
-      main: '#f44336',
+      main: green[800],
     },
   },
 });

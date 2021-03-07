@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core';
 import React, { useContext } from 'react';
-import Context from '../../Context';
-import ImageCard from './ImageCard';
+import Context from '../../core/context';
+import { ButtonImageCard } from '../Cards';
 
 export default function Home() {
   const { pages } = useContext(Context);
@@ -10,9 +10,9 @@ export default function Home() {
     <Grid container spacing={6}>
       {pages.map(page => (
         <Grid item xs={12} sm={6} key={page.url}>
-          <ImageCard imagePath={page.imagePath} buttonLink={page.url}>
+          <ButtonImageCard imagePath={page.imagePath} buttonLink={page.url} buttonText="Take me there!">
             {page.text}
-          </ImageCard>
+          </ButtonImageCard>
         </Grid>
       ))}
     </Grid>

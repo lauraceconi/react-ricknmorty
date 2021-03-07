@@ -9,7 +9,7 @@ import {
   Button
 } from '@material-ui/core';
 
-export default function ImageCard({ imagePath, buttonLink, children }) {
+export default function ImageCard({ imagePath, buttonLink, buttonText, children }) {
   return (
     <Card>
       <CardMedia image={imagePath} style={{height: 0, paddingTop: '43%'}} />
@@ -20,7 +20,7 @@ export default function ImageCard({ imagePath, buttonLink, children }) {
       </CardContent>
       <CardActions>
         <Button component={Link} to={buttonLink} size="small" color="primary">
-          Take me there!
+          {buttonText}
         </Button>
       </CardActions>
     </Card>
