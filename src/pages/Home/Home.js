@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core';
 import React, { useContext } from 'react';
 import Context from '../../core/context';
-import { ButtonImageCard } from '../Cards';
+import { ButtonImageCard } from '../../components/Cards';
 
 export default function Home() {
   const { pages } = useContext(Context);

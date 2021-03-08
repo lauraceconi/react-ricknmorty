@@ -12,6 +12,7 @@ import { Navbar } from './components/Navbar';
 
 const theme = createMuiTheme({
   palette: {
+    type: 'dark',
     primary: {
       main: green[400],
     },
