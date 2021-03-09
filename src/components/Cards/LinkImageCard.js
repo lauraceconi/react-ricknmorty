@@ -11,10 +11,10 @@ import './LinkImageCard.scss';
 export default function ImageCard({ imagePath, cardLink, children }) {
   return (
     <Link to={cardLink}>
-      <Card className="link-image-card">
+      <Card className="image-card-link">
         <CardMedia image={imagePath} style={{ height: 0, paddingTop: '100%' }} />
         <CardContent>
-          <Typography color="secondary">
+          <Typography className="image-card-text">
             {children}
           </Typography>
         </CardContent>
