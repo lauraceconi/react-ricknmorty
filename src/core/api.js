@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { BASE_URL } from './consts';
+import { API_BASE_URL } from './constants';
 
-const baseURL = BASE_URL;
+const baseURL = API_BASE_URL;
 
 const api = axios.create({
   baseURL,

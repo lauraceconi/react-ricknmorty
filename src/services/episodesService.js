@@ -1,6 +1,6 @@
 import API from '../core/api';
-import { EPISODES_SLUG } from '../core/consts';
+import { API_EPISODES_SLUG } from '../core/constants';
 
-const GET_FILTERED_LIST = ids => API.get(`${EPISODES_SLUG}/[${ids}]`);
+const GET_FILTERED_LIST = ids => API.get(`${API_EPISODES_SLUG}/[${ids}]`);
 
 export { GET_FILTERED_LIST }

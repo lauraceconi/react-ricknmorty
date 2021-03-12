@@ -9,10 +9,10 @@ const initialState = {
         url: '/characters',
       },
       {
-        name: 'Worlds',
+        name: 'Locations',
         text: "You can't remember which was the name of the world Rick and Morty visited in that episode? Come here and find out!",
         imagePath: '/images/worlds.jpg',
-        url: '/worlds',
+        url: '/locations',
       }
     ]
 };

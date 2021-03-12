@@ -7,7 +7,7 @@ export default function Characters() {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    charactersService.GET_LIST.then(response => {
+    charactersService.GET_LIST().then(response => {
       setCharacters(response.data.results);
     });
     return () => {

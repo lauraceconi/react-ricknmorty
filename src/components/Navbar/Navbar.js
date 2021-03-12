@@ -8,6 +8,7 @@ import {
   Button,
   Container
 } from '@material-ui/core';
+import { ROOT_URL } from '../../core/constants';
 import './Navbar.scss';
 
 export default function Navbar() {
@@ -23,7 +24,7 @@ export default function Navbar() {
             </Typography>
           </Link>
           {pages.map(page => (
-            <Link to={`/${page.url}`} className="navbar-link" key={page.url}>
+            <Link to={`${page.url}`} className="navbar-link" key={page.url}>
               <Button color="inherit">{page.name}</Button>
             </Link>
           ))}

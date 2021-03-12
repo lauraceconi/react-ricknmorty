@@ -1,9 +1,9 @@
 import API from '../core/api';
-import { CHARACTERS_SLUG } from '../core/consts';
+import { API_CHARACTERS_SLUG } from '../core/constants';
 
-const GET_LIST = API.get(`${CHARACTERS_SLUG}`);
+const GET_LIST = () => API.get(`${API_CHARACTERS_SLUG}`);
 
-const GET_ONE = id => API.get(`${CHARACTERS_SLUG}/${id}`);
+const GET_ONE = id => API.get(`${API_CHARACTERS_SLUG}/${id}`);
 
 export {
   GET_LIST,

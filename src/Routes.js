@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Characters } from './pages/Characters';
 import { CharactersDetails } from './pages/CharactersDetails';
+import { Locations } from './pages/Locations';
 
 export default function Routes() {
   return (
@@ -13,9 +14,9 @@ export default function Routes() {
       <Route path="/characters">
         <Characters />
       </Route>
-      {/* <Route path="/worlds">
-        <Worlds />
-      </Route> */}
+      <Route path="/locations">
+        <Locations />
+      </Route>
       <Route path="/">
         <Home />
       </Route>
