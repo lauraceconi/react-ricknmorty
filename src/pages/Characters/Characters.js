@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
-import * as SERVICE from '../../services/charactersService';
+import * as charactersService from '../../services/charactersService';
 import { LinkImageCard } from '../../components/Cards';
 
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    SERVICE.GET_CHARACTERS.then(response => {
+    charactersService.GET_LIST.then(response => {
       setCharacters(response.data.results);
     });
     return () => {

@@ -1,14 +1,11 @@
 import API from '../core/api';
-import { CHARACTERS_SLUG, EPISODES_SLUG } from '../core/consts';
+import { CHARACTERS_SLUG } from '../core/consts';
 
-const GET_CHARACTERS = API.get(`${CHARACTERS_SLUG}`);
+const GET_LIST = API.get(`${CHARACTERS_SLUG}`);
 
-const GET_ONE_CHARACTER = id => API.get(`${CHARACTERS_SLUG}/${id}`);
-
-const GET_EPISODES = ids => API.get(`${EPISODES_SLUG}/[${ids}]`);
+const GET_ONE = id => API.get(`${CHARACTERS_SLUG}/${id}`);
 
 export {
-  GET_CHARACTERS,
-  GET_ONE_CHARACTER,
-  GET_EPISODES
+  GET_LIST,
+  GET_ONE,
 }

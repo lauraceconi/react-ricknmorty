@@ -14,7 +14,8 @@ import {
   TableRow,
   TableCell,
 } from '@material-ui/core';
-import * as SERVICE from '../../services/charactersService';
+import * as charactersService from '../../services/charactersService';
+import * as episodesService from '../../services/episodesService';
 import formatEpisodeList from '../../helpers/formatEpisodeList';
 import './CharacterDetails.scss';
 
@@ -26,11 +27,11 @@ export default function CharactersDetails() {
   const characterMainInfo = ['name', 'status', 'species', 'gender'];
 
   useEffect(() => {
-    SERVICE.GET_ONE_CHARACTER(id).then(characterResponse => {
+    charactersService.GET_ONE(id).then(characterResponse => {
       setCharacter(characterResponse.data);
 
       const episodesListIds = formatEpisodeList(characterResponse.data.episode);
-      SERVICE.GET_EPISODES(episodesListIds).then(episodesResponse => {
+      episodesService.GET_FILTERED_LIST(episodesListIds).then(episodesResponse => {
         setEpisodes(episodesResponse.data);
       });
     })
