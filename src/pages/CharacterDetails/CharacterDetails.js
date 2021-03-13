@@ -18,7 +18,7 @@ import * as charactersService from '../../services/charactersService';
 import * as episodesService from '../../services/episodesService';
 import formatEpisodeList from '../../helpers/formatEpisodeList';
 
-export default function CharactersDetails() {
+export default function CharacterDetails() {
   const [character, setCharacter] = useState({});
   const [episodes, setEpisodes] = useState([]);
   const { id } = useParams();
