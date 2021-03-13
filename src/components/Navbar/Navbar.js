@@ -8,8 +8,6 @@ import {
   Button,
   Container
 } from '@material-ui/core';
-import { ROOT_URL } from '../../core/constants';
-import './Navbar.scss';
 
 export default function Navbar() {
   const { pages } = useContext(Context);

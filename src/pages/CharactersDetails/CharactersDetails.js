@@ -17,7 +17,6 @@ import {
 import * as charactersService from '../../services/charactersService';
 import * as episodesService from '../../services/episodesService';
 import formatEpisodeList from '../../helpers/formatEpisodeList';
-import './CharacterDetails.scss';
 
 export default function CharactersDetails() {
   const [character, setCharacter] = useState({});

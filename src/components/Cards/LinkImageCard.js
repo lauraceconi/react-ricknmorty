@@ -6,7 +6,6 @@ import {
   CardMedia,
   Typography,
 } from '@material-ui/core';
-import './LinkImageCard.scss';
 
 export default function ImageCard({ imagePath, cardLink, children }) {
   return (

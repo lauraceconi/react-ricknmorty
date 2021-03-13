@@ -11,6 +11,18 @@ body {
 
 a {
   text-decoration: none;
+  color: white;
+  &.title {
+    flex: 1;
+  }
+  &.table-link {
+    color: #66bb6a;
+    transition: .5s;
+    &:hover {
+      transition: .5s;
+      color: white;
+    }
+  }
 }
 
 h2 {
@@ -30,4 +42,25 @@ table tr {
   max-width: 1280px;
   padding: 0 24px;
   margin: 0 auto;
+}
+
+.character-attr {
+  font-weight: bold;
+  text-transform: capitalize;
+  min-width: 15%;
+  display: inline-block;
+}
+
+.image-card-link {
+  &:hover {
+    .image-card-text {
+      transition: .5s;
+      color: #66bb6a;
+    }
+  }
+}
+
+.image-card-text {
+  transition: .5s;
+  color: white;
 }
