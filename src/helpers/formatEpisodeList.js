@@ -7,9 +7,5 @@ function getIdFromUrl(url) {
 }
 
 export default function formatEpisodeList(urls) {
-  const episodesListIds = [];
-  urls.forEach(url => {
-    episodesListIds.push(getIdFromUrl(url));
-  });
-  return episodesListIds.join(',');
+  return urls.map(url => getIdFromUrl(url)).join(',');
 }
