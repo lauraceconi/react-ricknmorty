@@ -6,6 +6,6 @@ function getIdFromUrl(url) {
   return url.split('/').pop();
 }
 
-export default function formatEpisodeList(urls) {
+export default function formatIdsListFromUrls(urls) {
   return urls.map(url => getIdFromUrl(url)).join(',');
 }

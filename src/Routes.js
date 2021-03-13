@@ -4,12 +4,16 @@ import { Home } from './pages/Home';
 import { Characters } from './pages/Characters';
 import { CharacterDetails } from './pages/CharacterDetails';
 import { Locations } from './pages/Locations';
+import { LocationDetails } from './pages/LocationDetails';
 
 export default function Routes() {
   return (
     <Switch>
       <Route path="/characters/:id">
         <CharacterDetails />
+      </Route>
+      <Route path="/locations/:id">
+        <LocationDetails />
       </Route>
       <Route path="/characters">
         <Characters />

@@ -16,7 +16,7 @@ import {
 } from '@material-ui/core';
 import * as charactersService from '../../services/charactersService';
 import * as episodesService from '../../services/episodesService';
-import formatEpisodeList from '../../helpers/formatEpisodeList';
+import formatIdsListFromUrls from '../../helpers/formatIdsListFromUrls';
 
 export default function CharacterDetails() {
   const [character, setCharacter] = useState({});
@@ -29,7 +29,7 @@ export default function CharacterDetails() {
     charactersService.GET_ONE(id).then(characterResponse => {
       setCharacter(characterResponse.data);
 
-      const episodesListIds = formatEpisodeList(characterResponse.data.episode);
+      const episodesListIds = formatIdsListFromUrls(characterResponse.data.episode);
       episodesService.GET_FILTERED_LIST(episodesListIds).then(episodesResponse => {
         setEpisodes(episodesResponse.data);
       });
