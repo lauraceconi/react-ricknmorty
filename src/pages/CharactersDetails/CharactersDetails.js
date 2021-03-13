@@ -42,10 +42,10 @@ export default function CharactersDetails() {
   return (
     <>
       <Grid container spacing={6}>
-        <Grid item xs={4}>
-          <img src={character.image} alt={character.name} />
+        <Grid item xs={12} sm={4}>
+          <img src={character.image} alt={character.name} className="character-image" />
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={12} sm={8}>
           {characterMainInfo.map(attr => (
             <>
             <List>

@@ -44,6 +44,14 @@ table tr {
   margin: 0 auto;
 }
 
+.character-image {
+  max-width: 100%;
+  @media screen and (max-width: 600px) {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
 .character-attr {
   font-weight: bold;
   text-transform: capitalize;
