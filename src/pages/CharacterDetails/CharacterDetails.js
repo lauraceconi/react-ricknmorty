@@ -30,7 +30,7 @@ export default function CharacterDetails() {
       setCharacter(characterResponse.data);
 
       const episodesListIds = formatIdsListFromUrls(characterResponse.data.episode);
-      episodesService.GET_FILTERED_LIST(episodesListIds).then(episodesResponse => {
+      episodesService.FILTER_BY_IDS(episodesListIds).then(episodesResponse => {
         setEpisodes(episodesResponse.data);
       });
     })

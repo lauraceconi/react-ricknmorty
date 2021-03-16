@@ -25,7 +25,7 @@ export default function Locations() {
 
   return (
     <Grid container>
-      <h2>Locations</h2>
+      <h1>Locations</h1>
       <TableContainer>
         <Table>
           <TableHead>

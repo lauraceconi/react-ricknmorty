@@ -19,7 +19,7 @@ export default function LocationDetails() {
       setLocation(locationResponse.data);
 
       const charactersListIds = formatIdsListFromUrls(locationResponse.data.residents);
-      charactersService.GET_FILTERED_LIST(charactersListIds).then(charactersResponse => {
+      charactersService.FILTER_BY_IDS(charactersListIds).then(charactersResponse => {
         setCharacters(charactersResponse.data);
       });
     })
