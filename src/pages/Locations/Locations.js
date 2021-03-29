@@ -10,22 +10,49 @@ import {
 } from '@material-ui/core';
 import * as locationsService from '../../services/locationsService';
 import { Link } from 'react-router-dom';
+import { SearchBar } from '../../components/SearchBar';
 
 export default function Locations() {
-  const [locations, setLocations] = useState([])
+  const [locations, setLocations] = useState([]);
+  const [hasResults, setHasResults] = useState(true);
 
   useEffect(() => {
-    locationsService.GET_LIST().then(response => {
-      setLocations(response.data.results);
-    })
+    getLocations();
     return () => {
       setLocations([]);
     }
   }, []);
 
+  const getLocations = () => {
+    locationsService.GET_LIST().then(response => {
+      setLocations(response.data.results);
+      setHasResults(true);
+    })
+  }
+
+  const searchLocation = event => {
+    const value = event.target.value;
+    if (value.length > 2) {
+      locationsService.FILTER_BY_TEXT(value).then(response => {
+        setLocations(response.data.results);
+      }).catch(error => {
+        console.log(error);
+        setHasResults(false);
+      });
+    } else {
+      getLocations();
+    }
+  }
+
   return (
     <Grid container>
-      <h1>Locations</h1>
+      <Grid item xs={8}>
+        <h1>Locations</h1>
+      </Grid>
+      <Grid item xs={4}>
+        <SearchBar placeholder="Enter a location" handleChange={searchLocation} />
+      </Grid>
+      {hasResults ? (
       <TableContainer>
         <Table>
           <TableHead>
@@ -52,6 +79,11 @@ export default function Locations() {
           </TableBody>
         </Table>
       </TableContainer>
+      ) : (
+        <Grid item xs={12}>
+          <h2>Nothing here</h2>
+        </Grid>
+      )}
     </Grid>
   )
 }

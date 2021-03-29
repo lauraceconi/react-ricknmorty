@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, TextField } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import * as charactersService from '../../services/charactersService';
 import { LinkImageCard } from '../../components/Cards';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import SearchIcon from '@material-ui/icons/Search';
+import { SearchBar } from '../../components/SearchBar';
 
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
@@ -44,20 +43,7 @@ export default function Characters() {
         <h1>Characters</h1>
       </Grid>
       <Grid item xs={4}>
-        <TextField
-          id="outlined-basic"
-          placeholder="Search character"
-          variant="standard"
-          style={{ width: '100%' }}
-          onChange={event => searchCharacter(event)}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-        />
+        <SearchBar placeholder="Enter a character" handleChange={searchCharacter} />
       </Grid>
     </Grid>
     <Grid container spacing={6}>
