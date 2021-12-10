@@ -4,7 +4,6 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Typography,
 } from '@material-ui/core';
 
 export default function ImageCard({ imagePath, cardLink, children }) {
@@ -13,9 +12,9 @@ export default function ImageCard({ imagePath, cardLink, children }) {
       <Card className="image-card-link">
         <CardMedia image={imagePath} style={{ height: 0, paddingTop: '100%' }} />
         <CardContent>
-          <Typography className="image-card-text">
+          <div className="image-card-text">
             {children}
-          </Typography>
+          </div>
         </CardContent>
       </Card>
     </Link>
