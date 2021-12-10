@@ -18,9 +18,7 @@ export default function Locations() {
 
   useEffect(() => {
     getLocations();
-    return () => {
-      setLocations([]);
-    }
+    return () => setLocations([]);
   }, []);
 
   const getLocations = () => {
@@ -32,6 +30,7 @@ export default function Locations() {
 
   const searchLocation = value => {
     if (value == "") return getLocations()
+
     locationsService.FILTER_BY_TEXT(value).then(response => {
       setLocations(response.data.results);
     }).catch(error => {
@@ -46,7 +45,7 @@ export default function Locations() {
         <h1>Locations</h1>
       </Grid>
       <Grid item xs={4}>
-        <SearchBar placeholder="Enter a location" handleChange={searchLocation} />
+        <SearchBar placeholder="Enter a location" handleChange={searchLocation} resetSearch={getLocations} />
       </Grid>
       {hasResults ? (
       <TableContainer>
@@ -61,7 +60,7 @@ export default function Locations() {
           </TableHead>
           <TableBody>
             {locations.map(location => (
-              <TableRow>
+              <TableRow key={location.id}>
                 <TableCell>{location.name}</TableCell>
                 <TableCell>{location.type}</TableCell>
                 <TableCell>{location.dimension}</TableCell>

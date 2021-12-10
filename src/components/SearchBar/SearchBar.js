@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { TextField } from '@material-ui/core';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import { TextField, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
-export default function SearchBar({ placeholder, handleChange }) {
+import useDidMount from "../../hooks/useDidMount"
+
+export default function SearchBar({ placeholder, handleChange, resetSearch }) {
   const [value, setValue] = useState("")
-  const [debouncedValue, setDebouncedValue] = useState("")
+  const didMount = useDidMount()
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setDebouncedValue(value)
-    }, 1000)
+      if (didMount) handleChange(value)
+    }, 500)
     return () => clearTimeout(timer);
   }, [value])
-
-  useEffect(() => {
-    handleChange(debouncedValue)
-  }, [debouncedValue])
 
   return (
     <TextField

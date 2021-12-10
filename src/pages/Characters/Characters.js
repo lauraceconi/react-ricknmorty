@@ -22,6 +22,7 @@ export default function Characters() {
 
   const searchCharacter = value => {
     if (value == "") return getCharacters()
+
     charactersService.FILTER_BY_TEXT(value).then(response => {
       setCharacters(response.data.results);
     }).catch(error => {
@@ -37,7 +38,7 @@ export default function Characters() {
         <h1>Characters</h1>
       </Grid>
       <Grid item xs={4}>
-        <SearchBar placeholder="Enter a character" handleChange={searchCharacter} />
+        <SearchBar placeholder="Enter a character" handleChange={searchCharacter} resetSearch={getCharacters} />
       </Grid>
     </Grid>
     <Grid container spacing={6}>
