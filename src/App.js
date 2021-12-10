@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {
-  createMuiTheme,
+  createTheme,
   ThemeProvider,
   Grid
 } from '@material-ui/core';
@@ -10,7 +10,7 @@ import Routes from './Routes';
 import Context from './core/context';
 import { Navbar } from './components/Navbar';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     type: 'dark',
     primary: {
