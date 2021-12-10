@@ -10,9 +10,7 @@ export default function Characters() {
 
   useEffect(() => {
     getCharacters();
-    return () => {
-      setCharacters([]);
-    }
+    return () => setCharacters([]);
   }, [])
 
   const getCharacters = () => {
@@ -22,18 +20,14 @@ export default function Characters() {
     });
   }
 
-  const searchCharacter = event => {
-    const value = event.target.value;
-    if (value.length > 2) {
-      charactersService.FILTER_BY_TEXT(value).then(response => {
-        setCharacters(response.data.results);
-      }).catch(error => {
-        console.log(error);
-        setHasResults(false);
-      });
-    } else {
-      getCharacters();
-    }
+  const searchCharacter = value => {
+    if (value == "") return getCharacters()
+    charactersService.FILTER_BY_TEXT(value).then(response => {
+      setCharacters(response.data.results);
+    }).catch(error => {
+      console.log(error);
+      setHasResults(false);
+    });
   }
 
   return (

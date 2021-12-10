@@ -30,18 +30,14 @@ export default function Locations() {
     })
   }
 
-  const searchLocation = event => {
-    const value = event.target.value;
-    if (value.length > 2) {
-      locationsService.FILTER_BY_TEXT(value).then(response => {
-        setLocations(response.data.results);
-      }).catch(error => {
-        console.log(error);
-        setHasResults(false);
-      });
-    } else {
-      getLocations();
-    }
+  const searchLocation = value => {
+    if (value == "") return getLocations()
+    locationsService.FILTER_BY_TEXT(value).then(response => {
+      setLocations(response.data.results);
+    }).catch(error => {
+      console.log(error);
+      setHasResults(false);
+    });
   }
 
   return (
